@@ -41,6 +41,7 @@
       <th>Pages</th>
       <th>Price</th>
       <th>Released at</th>
+      <th>Avg. Score</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -55,6 +56,7 @@
         <td><%= book.pages %></td>
         <td><%= book.price %></td>
         <td><%= book.released_at %></td>
+        <td><%= book.reviews.count > 0 ? book.reviews.avg(:score).round(1) : "–" %></td>
         <td><%= link_to 'Show', book_path(book) %></td>
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book_path(book), method: :delete, data: { confirm: 'Are you sure?' } %></td>
